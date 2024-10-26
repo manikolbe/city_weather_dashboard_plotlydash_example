@@ -1,3 +1,4 @@
-streamlit
+dash
+requests
 pandas
-matplotlib
+plotly

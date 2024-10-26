@@ -1,83 +1,59 @@
-# City Weather Dashboard with Streamlit
+# 🌦️ Real-Time Weather Dashboard
 
-A real-time, interactive weather dashboard built using **Python** and **Streamlit**. This app allows users to enter a city name and get real-time weather updates, including temperature, humidity, and wind speed, for the next 12 to 48 hours. The data is pulled from the **Open-Meteo** API, with city name geolocation provided by **Nominatim (OpenStreetMap)**.
+![🌐 Weather Dashboard Web Page](Screenshot.png)
 
-![Weather Dashboard Screenshot](Screenshot.png)
+This repository contains a Python-based web application that provides real-time weather updates for any city. The application is built using Plotly Dash and provides a user-friendly interface to visualize temperature, humidity, and wind speed trends for a selected city.
 
-## 📋 Features
+## ✨ Features
 
-- **Real-Time Weather Data**: Fetches hourly temperature, humidity, and wind speed data.
-- **City Search**: Users can enter any city name to get weather data.
-- **Customizable Graphs**: Select forecast duration and display only chosen weather parameters.
-- **Clean Summary View**: Presents the latest temperature, humidity, and wind speed in a metric format.
+- 🌍 **Real-time Weather Updates**: Get the latest weather information for any city by simply entering its name.
+- 📊 **Weather Visualization**: Visualize temperature, humidity, and wind speed trends over a specified forecast duration.
+- 🖥️ **Interactive UI**: User-friendly interface built using Plotly Dash for easy selection of weather parameters and forecast duration.
 
-## 🚀 Getting Started
+## 🛠️ Technologies Used
 
-### Prerequisites
+- 🐍 **Python**
+- 📈 **Dash (Plotly)**
+- 🌤️ **Open-Meteo API** for weather data
+- 🗺️ **Nominatim API** for geocoding city names
 
-Ensure you have **Python 3.7+** and **pip** installed.
+## ⚙️ Installation
 
-### Installation
+1. **Clone the repository**:
 
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/manikolbe/city_weather_dashboard_streamlit_example.git
-   cd city_weather_dashboard_streamlit_example
+   ```sh
+   git clone https://github.com/yourusername/city_weather_dashboard.git
+   cd city_weather_dashboard
    ```
 
-2. **Install Required Packages**
+2. **Create a virtual environment**:
 
-   ```bash
+   ```sh
+   python -m venv venv
+   ```
+
+3. **Activate the virtual environment**:
+
+   - **Windows**: `venv\Scripts\activate`
+   - **macOS/Linux**: `source venv/bin/activate`
+
+4. **Install the required packages**:
+   ```sh
    pip install -r requirements.txt
    ```
 
-   > **Note**: If there’s no `requirements.txt`, create one by listing the dependencies:
-   >
-   > ```plaintext
-   > streamlit
-   > requests
-   > pandas
-   > ```
+## 🚀 Usage
 
-### Run the App
+1. **Run the application**:
 
-In the project directory, run:
+   ```sh
+   python city_weather_dashboard.py
+   ```
 
-```bash
-streamlit run city_weather_dashboard.py
-```
+2. **Open a browser** and go to `http://127.0.0.1:8050/` to access the weather dashboard.
 
-The app will open in a new browser tab at `http://localhost:8501`.
+## ⚡ How It Works
 
-## 🌎 Usage
-
-1. **Enter a City Name**: Type the city name (e.g., "San Francisco") in the input field.
-2. **Select Forecast Duration**: Use the slider to choose between 12 to 48 hours.
-3. **Choose Parameters**: Select which weather metrics to display: temperature, humidity, or wind speed.
-4. **Get Results**: Press "Get Weather Data" to fetch and display data.
-
-The app will show:
-
-- Line charts for each selected metric over the chosen duration.
-- A real-time summary of the current temperature, humidity, and wind speed.
-
-## 📚 Project Structure
-
-- **weather_dashboard.py**: Main app code.
-- **requirements.txt**: List of Python dependencies.
-- **README.md**: Project documentation.
-
-## 📦 APIs Used
-
-- **[Open-Meteo API](https://open-meteo.com/)**: For real-time weather data.
-- **[Nominatim API (OpenStreetMap)](https://nominatim.org/)**: For converting city names to coordinates.
-
-## 🎉 Acknowledgments
-
-- **OpenStreetMap & Nominatim** for their free and open geolocation API.
-- **Open-Meteo** for providing real-time weather data.
-
-## 🙌 Contributions
-
-Feel free to open issues or submit pull requests if you’d like to contribute or suggest improvements!
+- 🔎 **City Name Input**: Users can enter any city name, and the application fetches the latitude and longitude using the Nominatim API.
+- 🌡️ **Weather Data Fetching**: The weather data for the selected city is retrieved from the Open-Meteo API.
+- 📉 **Interactive Graphs**: The application visualizes the temperature, humidity, and wind speed trends for the selected forecast duration (12 to 48 hours).
