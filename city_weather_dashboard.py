@@ -16,6 +16,7 @@ def get_coordinates(city_name):
         location_data = response.json()
         if location_data:
             location = location_data[0]
+            print(location)
             return float(location['lat']), float(location['lon'])
         else:
             return None, None
@@ -24,7 +25,7 @@ def get_coordinates(city_name):
 
 # Function to get weather data from Open-Meteo
 def get_weather_data(lat, lon, hours):
-    url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&forecast_days=2"
+    url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,wind_speed_10m,relative_humidity_2m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&forecast_days=2"
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()
@@ -114,11 +115,11 @@ def update_weather(n_clicks, city_name, forecast_duration, parameter_options):
                 current_summary = html.Div([
                     html.H3("Current Weather Summary", style={'textAlign': 'center', 'color': '#212A31'}),
                     html.Div([
-                        html.Div([html.H4("✨ Temperature"), html.P(f"{data['hourly']['temperature_2m'][0]} °C")],
+                        html.Div([html.H4("✨ Temperature"), html.P(f"{data['current']['temperature_2m']} °C")],
                                  style={'textAlign': 'center','display': 'inline-block', 'margin-right': '20px', 'backgroundColor': '#f9f9f9', 'padding': '10px', 'borderRadius': '10px', 'boxShadow': '0px 0px 10px rgba(0, 0, 0, 0.1)'}),
-                        html.Div([html.H4("💧 Humidity"), html.P(f"{data['hourly']['relative_humidity_2m'][0]} %")],
+                        html.Div([html.H4("💧 Humidity"), html.P(f"{data['current']['relative_humidity_2m']} %")],
                                  style={'textAlign': 'center','display': 'inline-block', 'margin-right': '20px', 'backgroundColor': '#f9f9f9', 'padding': '10px', 'borderRadius': '10px', 'boxShadow': '0px 0px 10px rgba(0, 0, 0, 0.1)'}),
-                        html.Div([html.H4("🌬️ Wind Speed"), html.P(f"{data['hourly']['wind_speed_10m'][0]} m/s")],
+                        html.Div([html.H4("🌬️ Wind Speed"), html.P(f"{data['current']['wind_speed_10m']} m/s")],
                                  style={'textAlign': 'center','display': 'inline-block', 'backgroundColor': '#f9f9f9', 'padding': '10px', 'borderRadius': '10px', 'boxShadow': '0px 0px 10px rgba(0, 0, 0, 0.1)'})
                     ], style={'textAlign': 'center'})
                 ])
